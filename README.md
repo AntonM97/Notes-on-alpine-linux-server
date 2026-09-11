@@ -57,6 +57,19 @@ enable sudo `visudo` and find the group and uncomment it `%wheel ALL=(ALL) ALL`
 
 when the job is done you can leave editor by pressing `esc` and typing `:qw` and then pressing `Enter` 
 
+
+##### Change user password
+
+If you already accessed as user:
+```
+passwd
+```
+
+If you accessed as root:
+```
+passwd username
+```
+
 ##### Access from main PC (The Client)
 
 Open your Terminal.
@@ -74,3 +87,5 @@ if you try to change your username after you accessed through ssh you type just 
 
 ##### Drop ssh key on the server
 `ssh-copy-id -i /path/to/custom/key.pub username@localIP` example: `ssh-copy-id -i ~/.ssh/server_key.pub root@192.168.1.50`
+
+
