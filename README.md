@@ -85,6 +85,30 @@ if you have to change password from server `passwd yourname`
 if you try to change your username after you accessed through ssh you type just `passwd`
 
 
+chmod 700 /home/alice/.ssh
+chmod 600 /home/alice/.ssh/authorized_keys
+
+Then put the user's public SSH key into authorized_keys, for example:
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAA... alice@computer
+
+Check the result
+
+ls -ld /home/alice/.ssh
+ls -l /home/alice/.ssh/authorized_keys
+
+You should see permissions approximately like:
+
+drwx------  alice alice  ... .ssh
+-rw-------  alice alice  ... authorized_keys
+
+One additional thing: make sure the user's home directory itself is owned by them:
+
+chown alice:alice /home/alice
+
+If you tell me the actual username (not any password/private key), I can give you the exact commands to copy-paste.
+
+
 ##### Drop ssh key on the server
 `ssh-copy-id -i /path/to/custom/key.pub username@localIP` example: `ssh-copy-id -i ~/.ssh/server_key.pub root@192.168.1.50`
 
