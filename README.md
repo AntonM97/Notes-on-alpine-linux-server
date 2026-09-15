@@ -1,4 +1,10 @@
 # Notes-on-alpine-linux-server
+[1. Initial setup details and first necessity console commands](#initial-setup-details-and-first-necessity-console-commands)
+
+[2. My case specific details](#my-case-specific-details)
+
+
+## Initial setup details and first necessity console commands
 
 `poweroff` - to shut down all and make it stop consuming electricity
 
@@ -106,10 +112,37 @@ One additional thing: make sure the user's home directory itself is owned by the
 
 chown alice:alice /home/alice
 
-If you tell me the actual username (not any password/private key), I can give you the exact commands to copy-paste.
-
 
 ##### Drop ssh key on the server
 `ssh-copy-id -i /path/to/custom/key.pub username@localIP` example: `ssh-copy-id -i ~/.ssh/server_key.pub root@192.168.1.50`
 
+## My case specific details
 
+I use old netbook with x32 one 2-threaded core - so there might be issues with java version that is not supporting x32 after JDK17
+so has to check if works with 17 or downgrade to JDK11 or even JDK8
+
+    Spring Boot 3.x,
+    Minimum Java version: 17
+    Boot 3.x requires Java 17 or later.
+    Boot 2.7.x also runs on Java 17 (but is end‑of‑life).
+
+✔ Spring Data JPA 3.x
+
+    Ships with Spring Boot 3.x,
+    Uses Hibernate 6 (also requires Java 17),
+    Uses jakarta.persistence.\* instead of javax.\*
+
+✔ Spring Security 6.x
+
+    Ships with Spring Boot 3.x,
+    Requires Java 17,
+    Removes WebSecurityConfigurerAdapter,
+    Uses new lambda‑based DSL
+    
+If you cannot run Java 17 (only Java 11 or Java 8 available in 32‑bit)** →
+
+You are limited to:
+    Spring Boot 2.7.x, 
+    Spring Security 5.8.x
+    Spring Data JPA 2.7.x (Hibernate 5.x)
+Boot 2.7.x is end‑of‑life, but still functional.
