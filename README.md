@@ -134,6 +134,7 @@ If you need first to check if the key is working use `cat >> ~/.ssh/authorized_k
 But with one `>` it will replace so -> `cat > ~/.ssh/authorized_keys`  Paste the new public key (usually the entire line beginning with ssh-ed25519, ssh-rsa, etc.), then press Ctrl-D.
 
 #### Drop ssh key on the server
+(You actually don't have to do that if you have inserted contents of your public key to the authorized_keys)
 `ssh-copy-id -i /path/to/custom/key.pub username@localIP` example: `ssh-copy-id -i ~/.ssh/server_key.pub root@192.168.1.50`
 
 
