@@ -95,27 +95,40 @@ if you have to change password from server `passwd yourname`
 if you try to change your username after you accessed through ssh you type just `passwd`
 
 
-chmod 700 /home/username/.ssh
-chmod 600 /home/username/.ssh/authorized_keys
+`chmod 700 /home/username/.ssh` (7-Owner: read+write+execute; 0-Group: no permissions; 0-everyone else: no permissions)
+For the .ssh directory, this means only the account owner can access it.
+
+- r = list files in the directory
+
+- w = create/delete/rename files
+
+- x = enter/access the directory
+
+
+`chmod 600 /home/username/.ssh/authorized_keys`
 
 Then put the user's public SSH key into authorized_keys, for example:
 
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAA... alice@computer
 
 Check the result
-
+```
 ls -ld /home/username/.ssh
 ls -l /home/username/.ssh/authorized_keys
-
+```
 You should see permissions approximately like:
-
-drwx------  alice alice  ... .ssh
--rw-------  alice alice  ... authorized_keys
-
+```
+drwx------  username username  ... .ssh
+-rw-------  username username  ... authorized_keys
+```
 One additional thing: make sure the user's home directory itself is owned by them:
 
-chown alice:alice /home/alice
+`chown alice:alice /home/alice` (`chown`-change ownership; `-R`-recursively, means  directory and files/subdirectories inside it; `alice:alice`-fist:owner second:group)
 
+
+
+Adding key to authorized_keys
+`cat > ~/.ssh/authorized_keys` Paste the new public key (usually the entire line beginning with ssh-ed25519, ssh-rsa, etc.), then press Ctrl-D.
 
 #### Drop ssh key on the server
 `ssh-copy-id -i /path/to/custom/key.pub username@localIP` example: `ssh-copy-id -i ~/.ssh/server_key.pub root@192.168.1.50`
