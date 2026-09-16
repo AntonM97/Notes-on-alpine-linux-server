@@ -188,3 +188,15 @@ If you cannot run Java 17 (only Java 11 or Java 8 available in 32‑bit)** you'r
 - Spring Security 5.8.x
 - Spring Data JPA 2.7.x (Hibernate 5.x)
 
+
+### Cloudflared installation
+```
+cd /tmp
+wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386
+
+chmod +x cloudflared-linux-386
+sudo mv cloudflared-linux-386 /usr/local/bin/cloudflared
+
+cloudflared --version
+```
+
