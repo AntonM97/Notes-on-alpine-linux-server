@@ -127,11 +127,35 @@ One additional thing: make sure the user's home directory itself is owned by the
 
 
 
-Adding key to authorized_keys
-`cat > ~/.ssh/authorized_keys` Paste the new public key (usually the entire line beginning with ssh-ed25519, ssh-rsa, etc.), then press Ctrl-D.
+#### Adding key to authorized_keys
+
+If you need first to check if the key is working use `cat >> ~/.ssh/authorized_keys` - it won't replace previous keys
+
+But with one `>` it will replace so -> `cat > ~/.ssh/authorized_keys`  Paste the new public key (usually the entire line beginning with ssh-ed25519, ssh-rsa, etc.), then press Ctrl-D.
 
 #### Drop ssh key on the server
 `ssh-copy-id -i /path/to/custom/key.pub username@localIP` example: `ssh-copy-id -i ~/.ssh/server_key.pub root@192.168.1.50`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## My case specific details
 
