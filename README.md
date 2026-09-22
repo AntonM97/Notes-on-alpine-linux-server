@@ -229,3 +229,6 @@ rc-update add postgresql
 rc-service postgresql start
 ```
 more here https://wiki.alpinelinux.org/wiki/Postgresql
+
+### Java Installation
+Details here https://wiki.alpinelinux.org/wiki/Installing_Oracle_Java
