@@ -214,3 +214,18 @@ then run cloudflare secvice while passing a token to it
 ```
 cloudflared service install eyJhIjoi...
 ```
+
+
+
+
+
+### PostgreSQL 18 installation 
+18 is the latest version since [[1]].
+
+To install PostgreSQL 18,
+```
+apk add postgresql18 postgresql18-contrib
+rc-update add postgresql
+rc-service postgresql start
+```
+more here https://wiki.alpinelinux.org/wiki/Postgresql
