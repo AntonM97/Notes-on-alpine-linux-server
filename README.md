@@ -15,7 +15,16 @@
 
 **default home-server login for alpine linux:** `root`
 
+#### Check current state
+```
+free -h
 
+df -h
+
+top
+
+
+```
 #### Check the connection
 `ping 8.8.8.8` - packages from google    
 and press Ctrl+C to make it stop
