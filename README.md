@@ -199,4 +199,18 @@ sudo mv cloudflared-linux-386 /usr/local/bin/cloudflared
 
 cloudflared --version
 ```
+OR
+```
+scp cloudflared-linux-386 root@192.168.1.50:/root/
 
+chmod +x cloudflared
+mv cloudflared /usr/local/bin/cloudflared
+
+cloudflared --version
+
+```
+
+then run cloudflare secvice while passing a token to it
+```
+cloudflared service install eyJhIjoi...
+```
